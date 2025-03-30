@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet" />
+    <title>Idul Fitri</title>
+    <style>
+      * {
+        font-family: "Italianno", cursive;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-t from-[#cc0f30] to-[#ffb6c1] min-h-screen flex justify-center items-center p-4">
+    <div class="bg-white/30 p-8 rounded-3xl max-w-lg w-full flex flex-col items-center gap-6 text-center">
+      <p class="text-4xl font-semibold text-black">Surat ini ditujukan untuk.......</p>
+      <img src="asset/letter.gif" alt="surat" class="w-40 h-40 md:w-48 md:h-48" />
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Masukkan nama orang kecayangannnn imiiiiii"
+        class="w-full px-4 py-2 text-lg text-black/75 focus:outline-none focus:ring-2 focus:ring-black rounded-xl"
+      />
+      <button id="requestBtn" class="w-full max-w-xs p-4 bg-[#98182b] text-white rounded-full text-xl transition-colors hover:bg-[#7a1322]">Request</button>
+    </div>
+
+    <script>
+      document.getElementById("requestBtn").addEventListener("click", function () {
+        const name = document.getElementById("nameInput").value.trim();
+
+        if (name === "") {
+          alert("Silakan masukkan nama terlebih dahulu!");
+          return;
+        }
+
+        if (name.toLowerCase() === "qisqis") {
+          window.location.href = "surat.html"; // Ganti dengan URL tujuan
+        } else {
+          alert(`Halo ${name}! Maaf, hanya nama khusus yang bisa melanjutkan.`);
+        }
+      });
+
+      // Optional: Allow submission by pressing Enter key
+      document.getElementById("nameInput").addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          document.getElementById("requestBtn").click();
+        }
+      });
+    </script>
+  </body>
+</html>

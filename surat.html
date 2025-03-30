@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>Idul Fitri</title>
+    <style>
+      * {
+        font-family: "Italianno", cursive;
+      }
+      span {
+        font-family: "Inter", sans-serif;
+        font-size: small;
+        display: inline-block;
+        text-indent: 1em;
+      }
+      /* Portrait image aspect ratio: 9:16 */
+      .carousel-item {
+        height: 320px; /* Height greater than width for portrait */
+        width: 180px; /* Adjust width for portrait */
+        object-fit: cover;
+      }
+
+      /* Carousel wrapper with overflow hidden to hide non-visible images */
+      .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* Carousel container with flexbox for horizontal movement */
+      .carousel-container {
+        display: flex;
+        transition: transform 1s ease-in-out;
+        gap: 20px; /* Add space between images */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full h-auto min-h-screen relative overflow-hidden bg-gradient-to-t from-[#cc0f30] to-[#ffb6c1]">
+      <div class="flex flex-col justify-center items-center w-full max-w-4xl h-auto mx-auto my-6 px-4 py-6 rounded-[36px] bg-white/75">
+        <div class="flex justify-start items-start w-full gap-2.5 p-3">
+          <p class="text-2xl sm:text-3xl md:text-4xl text-left text-black">Teruntuk Qisqiss kecayangan Imii</p>
+        </div>
+        <div class="flex justify-start items-center w-full px-4">
+          <p class="text-sm sm:text-base md:text-lg text-justify text-black">
+            <span>Selamat Hari Raya Idul Fitri Byyy, </span><br />
+            <span>
+              Mohon Maaf Lahir &#x26; Batin. Maaf kalau selama kurang lebih 6 bulan jalan 7 bulan iniii aku banyak salah. Aku berusaha kok byy buat jadi yang
+              lebih baik lagi. Aku juga berusaha supaya jadi pasangan yang kamu impikan. Aku minta maaf kalau selama ini udah bikin kamu sedih, belum bisa
+              mahamin kamu, belum peka dengan keadaan kamu, suka diemin kamu kalau lagi ada masalah, kurang perhatian dengan hal-hal kecil, terlalu serius kalau
+              ngobrol bareng kamu. </span
+            ><br />
+            <span>
+              Semoga dengan masalah dan ujian yang udah kita hadepin selama ini bisa bikin kita makin langgeng, makin sayang dan makin bucin (xixixixiixixix).
+              Makasih udah selalu sabar dan memberi aku kesempatan disetiap kesalahan yang udah aku perbuat. Aku emang masih banyak kurang, salah dan khilafnya
+              tapi aku mohon kasih tau supaya aku bisa berbenah dan jadi pasangan yang kamu impikan. Perjalanan kita masih panjang byyy untuk ke jenjang yang
+              lebih serius tapi aku yakin kok kita bisa hadepinnya bareng-bareng. Semoga di lebaran-lebaran selanjutnyaa kita masih bareng-bareng sampe janur
+              kuning melengkung dan ada tulisan “Hilmi &#x26; Qisthi” xixixiixixiixixixi
+            </span>
+          </p>
+        </div>
+
+        <!-- Static Portrait Carousel Section -->
+        <div class="w-full max-w-4xl mx-auto mt-6 px-4 rounded-xl overflow-hidden">
+          <div class="carousel-wrapper">
+            <div class="carousel-container">
+              <img class="carousel-item rounded-xl" src="asset/Img1.jpg" alt="Image 1" />
+              <img class="carousel-item rounded-xl" src="asset/Img2.jpg" alt="Image 2" />
+              <img class="carousel-item rounded-xl" src="asset/Img3.jpg" alt="Image 3" />
+              <img class="carousel-item rounded-xl" src="asset/Img4.jpg" alt="Image 4" />
+              <img class="carousel-item rounded-xl" src="asset/Img5.jpg" alt="Image 5" />
+              <img class="carousel-item rounded-xl" src="asset/Img6.jpg" alt="Image 6" />
+              <img class="carousel-item rounded-xl" src="asset/Img7.jpg" alt="Image 7" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-start items-start gap-6 mt-4">
+          <div
+            class="flex justify-center items-center w-auto max-w-[124px] px-6 py-3 bg-[#999191] rounded-3xl text-white text-sm md:text-base cursor-pointer hover:bg-[#7a7a7a] transition-all"
+          >
+            <p class="text-left">Back</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currentIndex = 0;
+      const items = document.querySelectorAll(".carousel-container img");
+      const totalItems = items.length;
+
+      // Function to move the carousel
+      function moveCarousel() {
+        const offset = -currentIndex * 200; // Adjust the offset for correct sliding (200px for the width of each image)
+        document.querySelector(".carousel-container").style.transform = `translateX(${offset}px)`;
+      }
+
+      // Function to automatically slide the carousel
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalItems; // Go to the next image, loop back to the first image if at the end
+        moveCarousel();
+      }, 3000); // Change image every 3 seconds
+
+      // Initial display of the first image
+      moveCarousel();
+    </script>
+  </body>
+</html>
